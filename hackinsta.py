@@ -3,11 +3,13 @@ import argparse
 import os
 import codecs
 import time
-1
+import socket
+import socks
+
+socket.socket = socks.socksocket
+
 base_url = 'https://www.instagram.com'
 user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
-
-
 def user_exists(username):
 	return requests.get(f'{base_url}/{username}', headers={
 		'user-agent': user_agent
